@@ -1,7 +1,8 @@
-#pragma once
+as t#pragma once
 #include <windows.h>
 #include <d3d9.h>
 #include <cstdio>
+#include <string>
 #include "interfaces/ivcliententitylist.hpp"
 #include "interfaces/cglobalvarsbase.hpp"
 #include "interfaces/iplayermovement.hpp"
@@ -802,7 +803,7 @@ public:
 		return ("");
 	}
 
-	std::u8string get_wpn_icon(int index = -1) {
+	std::string get_wpn_icon(int index = -1) {
 		switch (auto idx = index != -1 ? index : this->item_definition_index(); idx) {
 		case WEAPON_DEAGLE:					return u8"\uE001";
 		case WEAPON_ELITE:					return u8"\uE002";
@@ -817,81 +818,81 @@ public:
 		case WEAPON_M249:					return u8"\uE00E";
 		case WEAPON_M4A1:					return u8"\uE010";
 		case WEAPON_MAC10:					return u8"\uE011";
-		case WEAPON_P90:					return u8"\uE013";
-		case WEAPON_MP5SD:					return u8"\uE017";
-		case WEAPON_UMP45:					return u8"\uE018";
-		case WEAPON_XM1014:					return u8"\uE019";
-		case WEAPON_BIZON:					return u8"\uE01A";
-		case WEAPON_MAG7:					return u8"\uE01B";
-		case WEAPON_NEGEV:					return u8"\uE01C";
-		case WEAPON_SAWEDOFF:				return u8"\uE01D";
-		case WEAPON_TEC9:					return u8"\uE01E";
-		case WEAPON_TASER:					return u8"\uE01F";
-		case WEAPON_HKP2000:				return u8"\uE020";
-		case WEAPON_MP7:					return u8"\uE021";
-		case WEAPON_MP9:					return u8"\uE022";
-		case WEAPON_NOVA:					return u8"\uE023";
-		case WEAPON_P250:					return u8"\uE024";
-		case WEAPON_SHIELD:					return u8"\uE025";
-		case WEAPON_SCAR20:					return u8"\uE026";
-		case WEAPON_SSG08:					return u8"\uE028";
-		case WEAPON_KNIFEGG:				return u8"\uE029";
-		case WEAPON_KNIFE:					return u8"\uE02A";
-		case WEAPON_FLASHBANG:				return u8"\uE02B";
-		case WEAPON_HEGRENADE:				return u8"\uE02C";
-		case WEAPON_SMOKEGRENADE:			return u8"\uE02D";
-		case WEAPON_MOLOTOV:				return u8"\uE02E";
-		case WEAPON_DECOY:					return u8"\uE02F";
-		case WEAPON_INCGRENADE:				return u8"\uE030";
-		case WEAPON_C4:						return u8"\uE031";
-		case WEAPON_HEALTHSHOT:				return u8"\uE039";
-		case WEAPON_KNIFE_T:				return u8"\uE03B";
-		case WEAPON_M4A1_SILENCER:			return u8"\uE03C";
-		case WEAPON_USP_SILENCER:			return u8"\uE03D";
-		case WEAPON_CZ75A:					return u8"\uE03F";
-		case WEAPON_REVOLVER:				return u8"\uE040";
-		case WEAPON_TAGRENADE:				return u8"\uE044";
-		case WEAPON_FISTS:					return u8"\uE045";
-		case WEAPON_BREACHCHARGE:			return u8"\uE046";
-		case WEAPON_TABLET:					return u8"\uE048";
-		case WEAPON_MELEE:					return u8"\uE04A";
-		case WEAPON_AXE:					return u8"\uE04B";
-		case WEAPON_HAMMER:					return u8"\uE04C";
-		case WEAPON_SPANNER:				return u8"\uE04E";
-		case WEAPON_KNIFE_GHOST:			return u8"\uE050";
-		case WEAPON_FIREBOMB:				return u8"\uE051";
-		case WEAPON_DIVERSION:				return u8"\uE052";
-		case WEAPON_FRAG_GRENADE:			return u8"\uE053";
-		case WEAPON_SNOWBALL:				return u8"\uE054";
-		case WEAPON_BUMPMINE:				return u8"\uE055";
-		case WEAPON_KNIFE_FLIP:				return u8"\uE1F9";
-		case WEAPON_KNIFE_GUT:				return u8"\uE1FA";
-		case WEAPON_KNIFE_KARAMBIT:			return u8"\uE1FB";
-		case WEAPON_KNIFE_M9_BAYONET:		return u8"\uE1FC";
-		case WEAPON_KNIFE_TACTICAL:			return u8"\uE1FD";
-		case WEAPON_KNIFE_FALCHION:			return u8"\uE200";
-		case WEAPON_KNIFE_SURVIVAL_BOWIE:	return u8"\uE202";
-		case WEAPON_KNIFE_BUTTERFLY:		return u8"\uE203";
-		case WEAPON_KNIFE_PUSH:				return u8"\uE204";
-		case WEAPON_KNIFE_URSUS:			return u8"\uE207";
-		case WEAPON_KNIFE_GYPSY_JACKKNIFE:	return u8"\uE208";
-		case WEAPON_KNIFE_STILETTO:			return u8"\uE20A";
-		case WEAPON_KNIFE_WIDOWMAKER:		return u8"\uE20B";
+		case WEAPON_DEAGLE:                 return "\uE001";
+		case WEAPON_ELITE:                  return "\uE002";
+		case WEAPON_FIVESEVEN:              return "\uE003";
+		case WEAPON_GLOCK:                  return "\uE004";
+		case WEAPON_AK47:                   return "\uE007";
+		case WEAPON_AUG:                    return "\uE008";
+		case WEAPON_AWP:                    return "\uE009";
+		case WEAPON_FAMAS:                  return "\uE00A";
+		case WEAPON_G3SG1:                  return "\uE00B";
+		case WEAPON_GALILAR:                return "\uE00D";
+		case WEAPON_M249:                   return "\uE00E";
+		case WEAPON_M4A1:                   return "\uE010";
+		case WEAPON_MAC10:                  return "\uE011";
+		case WEAPON_P90:                    return "\uE013";
+		case WEAPON_MP5SD:                  return "\uE017";
+		case WEAPON_UMP45:                  return "\uE018";
+		case WEAPON_XM1014:                 return "\uE019";
+		case WEAPON_BIZON:                  return "\uE01A";
+		case WEAPON_MAG7:                   return "\uE01B";
+		case WEAPON_NEGEV:                  return "\uE01C";
+		case WEAPON_SAWEDOFF:               return "\uE01D";
+		case WEAPON_TEC9:                   return "\uE01E";
+		case WEAPON_TASER:                  return "\uE01F";
+		case WEAPON_HKP2000:                return "\uE020";
+		case WEAPON_MP7:                    return "\uE021";
+		case WEAPON_MP9:                    return "\uE022";
+		case WEAPON_NOVA:                   return "\uE023";
+		case WEAPON_P250:                   return "\uE024";
+		case WEAPON_SHIELD:                 return "\uE025";
+		case WEAPON_SCAR20:                 return "\uE026";
+		case WEAPON_SSG08:                  return "\uE028";
+		case WEAPON_KNIFEGG:                return "\uE029";
+		case WEAPON_KNIFE:                  return "\uE02A";
+		case WEAPON_FLASHBANG:              return "\uE02B";
+		case WEAPON_HEGRENADE:              return "\uE02C";
+		case WEAPON_SMOKEGRENADE:           return "\uE02D";
+		case WEAPON_MOLOTOV:                return "\uE02E";
+		case WEAPON_DECOY:                  return "\uE02F";
+		case WEAPON_INCGRENADE:             return "\uE030";
+		case WEAPON_C4:                     return "\uE031";
+		case WEAPON_HEALTHSHOT:             return "\uE039";
+		case WEAPON_KNIFE_T:                return "\uE03B";
+		case WEAPON_M4A1_SILENCER:          return "\uE03C";
+		case WEAPON_USP_SILENCER:           return "\uE03D";
+		case WEAPON_CZ75A:                  return "\uE03F";
+		case WEAPON_REVOLVER:               return "\uE040";
+		case WEAPON_TAGRENADE:              return "\uE044";
+		case WEAPON_FISTS:                  return "\uE045";
+		case WEAPON_BREACHCHARGE:           return "\uE046";
+		case WEAPON_TABLET:                 return "\uE048";
+		case WEAPON_MELEE:                  return "\uE04A";
+		case WEAPON_AXE:                    return "\uE04B";
+		case WEAPON_HAMMER:                 return "\uE04C";
+		case WEAPON_SPANNER:                return "\uE04E";
+		case WEAPON_KNIFE_GHOST:            return "\uE050";
+		case WEAPON_FIREBOMB:               return "\uE051";
+		case WEAPON_DIVERSION:              return "\uE052";
+		case WEAPON_FRAG_GRENADE:           return "\uE053";
+		case WEAPON_SNOWBALL:               return "\uE054";
+		case WEAPON_BUMPMINE:               return "\uE055";
+		case WEAPON_KNIFE_FLIP:             return "\uE1F9";
+		case WEAPON_KNIFE_GUT:              return "\uE1FA";
+		case WEAPON_KNIFE_KARAMBIT:         return "\uE1FB";
+		case WEAPON_KNIFE_M9_BAYONET:       return "\uE1FC";
+		case WEAPON_KNIFE_TACTICAL:         return "\uE1FD";
+		case WEAPON_KNIFE_FALCHION:         return "\uE200";
+		case WEAPON_KNIFE_SURVIVAL_BOWIE:   return "\uE202";
+		case WEAPON_KNIFE_BUTTERFLY:        return "\uE203";
+		case WEAPON_KNIFE_PUSH:             return "\uE204";
+		case WEAPON_KNIFE_URSUS:            return "\uE207";
+		case WEAPON_KNIFE_GYPSY_JACKKNIFE:  return "\uE208";
+		case WEAPON_KNIFE_STILETTO:         return "\uE20A";
+		case WEAPON_KNIFE_WIDOWMAKER:       return "\uE20B";
 		default:
-			return u8"\u0000";
-		}
-	}
-
-	bool is_grenade() {
-		switch (this->item_definition_index()) {
-		case WEAPON_FLASHBANG:
-		case WEAPON_HEGRENADE:
-		case WEAPON_SMOKEGRENADE:
-		case WEAPON_MOLOTOV:
-		case WEAPON_INCGRENADE:
-		case WEAPON_DECOY:
-			return true;
-		default:
+			return "\u0000";
 			return false;
 		}
 	}

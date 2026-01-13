@@ -45,23 +45,22 @@ $action = {
             if ($LASTEXITCODE -eq 0) {
                 Write-Host "Auto-push complete: $msg"
                 if ($DiscordWebhook -and $DiscordWebhook.Trim() -ne '') {
-                    $hash = (git rev-parse --short HEAD) -join ''
-                    $commitMsg = (git log -1 --pretty=%B) -join ''
+                    $hash = (git rev-parse --short HEAD | Out-String).Trim()
+                    $commitMsg = (git log -1 --pretty=%B | Out-String).Trim()
                     $repoName = Split-Path -Leaf $RepoPath
-                    $payload = @{
-                        username = 'Auto-Push Bot'
-                        embeds = @(
-                            @{
-                                title = "Auto push to $Branch"
-                                description = $commitMsg
-                                fields = @(
-                                    @{ name = 'Commit'; value = $hash; inline = $true },
-                                    @{ name = 'Repo'; value = $repoName; inline = $true }
-                                )
-                                timestamp = (Get-Date).ToString('o')
-                            }
+                    $changelog = (git log -n 8 --pretty=format:"%h - %s" | Out-String).Trim()
+                    if (-not $changelog) { $changelog = $commitMsg }
+                    $embed = @{
+                        title = "Auto push to $Branch"
+                        description = $commitMsg
+                        fields = @(
+                            @{ name = 'Commit'; value = $hash; inline = $true },
+                            @{ name = 'Repo'; value = $repoName; inline = $true },
+                            @{ name = 'Recent commits'; value = $changelog; inline = $false }
                         )
-                    } | ConvertTo-Json -Depth 6
+                        timestamp = (Get-Date).ToString('o')
+                    }
+                    $payload = @{ username = 'Auto-Push Bot'; embeds = @($embed) } | ConvertTo-Json -Depth 10
                     try {
                         Invoke-RestMethod -Uri $DiscordWebhook -Method Post -Body $payload -ContentType 'application/json' -ErrorAction Stop
                         Write-Host 'Discord notification sent.'
