@@ -40,7 +40,7 @@
     <ProjectGuid>{0d587cb8-c127-4bc9-8117-72fbb62010a8}</ProjectGuid>
     <RootNamespace>Parallax</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>arkane</ProjectName>
+    <ProjectName>arkane source code</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -154,6 +154,10 @@
     </LinkIncremental>
     <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;includes\imgui\freetype\include;includes;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;includes\imgui\freetype\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>.\bin\release</OutDir>
+    <IntDir>.\intermediate</IntDir>
+    <TargetName>arkane</TargetName>
+    <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Beta|Win32'">
     <IncludePath>C:\Users\Moi\Documents\GitHub\arkane-master\includes\lua\src;includes\imgui\freetype\include;includes;$(IncludePath)</IncludePath>
