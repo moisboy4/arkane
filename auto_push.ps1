@@ -6,6 +6,9 @@ Param(
 
 Set-Location $RepoPath
 
+# Discord webhook for push notifications. Replace or leave as empty string to disable.
+$DiscordWebhook = 'https://discord.com/api/webhooks/1460583008640827394/AUDDdlPrg9VcLDS6QWqXOx7nP-kSPXviPoX2Ta_ooSoVedo1cuHXpIZZMH5ZlexWGA-P'
+
 $fsw = New-Object System.IO.FileSystemWatcher $RepoPath, '*.*'
 $fsw.IncludeSubdirectories = $true
 $fsw.EnableRaisingEvents = $true
@@ -39,7 +42,36 @@ $action = {
             $msg = "Auto commit: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
             git commit -m $msg 2>$null | Out-Null
             git push origin $using:Branch
-            Write-Host "Auto-push complete: $msg"
+            if ($LASTEXITCODE -eq 0) {
+                Write-Host "Auto-push complete: $msg"
+                if ($DiscordWebhook -and $DiscordWebhook.Trim() -ne '') {
+                    $hash = (git rev-parse --short HEAD) -join ''
+                    $commitMsg = (git log -1 --pretty=%B) -join ''
+                    $repoName = Split-Path -Leaf $RepoPath
+                    $payload = @{
+                        username = 'Auto-Push Bot'
+                        embeds = @(
+                            @{
+                                title = "Auto push to $Branch"
+                                description = $commitMsg
+                                fields = @(
+                                    @{ name = 'Commit'; value = $hash; inline = $true },
+                                    @{ name = 'Repo'; value = $repoName; inline = $true }
+                                )
+                                timestamp = (Get-Date).ToString('o')
+                            }
+                        )
+                    } | ConvertTo-Json -Depth 6
+                    try {
+                        Invoke-RestMethod -Uri $DiscordWebhook -Method Post -Body $payload -ContentType 'application/json' -ErrorAction Stop
+                        Write-Host 'Discord notification sent.'
+                    } catch {
+                        Write-Host "Failed to send Discord notification: $_"
+                    }
+                }
+            } else {
+                Write-Host "Auto-push failed (git push returned exit code $LASTEXITCODE)."
+            }
         } catch {
             Write-Host "Auto-push failed:`n$_"
         }
