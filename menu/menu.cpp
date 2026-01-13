@@ -2759,7 +2759,7 @@ void miscellaneous() {
                     c::create_file(buffer);
 
                     //std::stringstream ss;
-                   // ss << "\x08" << " \x08" << "%c" << "delusional" << "\x08" << "\x08 | created config " << (std::string)buffer;
+                   // ss << "\x08" << " \x08" << "%c" << "arkane" << "\x08" << "\x08 | created config " << (std::string)buffer;
 
                     if (interfaces::engine->is_in_game()) {
                         interfaces::chat_element->chatprintf("#arkane#_print_created");
@@ -2791,7 +2791,7 @@ void miscellaneous() {
                                 else {
                                     c::save(config_index);
                                     //std::stringstream ss;
-                                    //ss << "\x08" << " \x08" << "%c" << "delusional" << "\x08" << "\x08 | saved config " << c::configs.at(config_index);
+                                    //ss << "\x08" << " \x08" << "%c" << "arkane" << "\x08" << "\x08 | saved config " << c::configs.at(config_index);
 
                                         if (interfaces::engine->is_in_game()) {
                                         interfaces::chat_element->chatprintf("#arkane#_print_saved");
@@ -2812,7 +2812,7 @@ void miscellaneous() {
                         c::load(config_index);
                         getskins();
                         //std::stringstream ss;
-                        //ss << "\x08" << " \x08" << "%c" << "delusional" << "\x08" << "\x08 | loaded config " << c::configs.at(config_index);
+                        //ss << "\x08" << " \x08" << "%c" << "arkane" << "\x08" << "\x08 | loaded config " << c::configs.at(config_index);
 
                         if (interfaces::engine->is_in_game()) {
                             interfaces::chat_element->chatprintf("#arkane#_print_loaded");
@@ -3019,7 +3019,7 @@ void miscellaneous() {
             ImGui::Checkbox(("music display"), &c::misc::show_spotify_currently_playing);
             if (c::misc::show_spotify_currently_playing) {
                 ImGui::Text(("music player look type"));
-                ImGui::Combo(("##player_type"), &c::misc::player_type, "delusional (og)\0lobotomy");
+                ImGui::Combo(("##player_type"), &c::misc::player_type, "arkane (og)\0lobotomy");
                 if (c::misc::player_type == 1) {
                     ImGui::Checkbox(("enable progressbar"), &c::misc::progressbar_enable);
                 }
@@ -3747,7 +3747,7 @@ void skins() {
                 ss << "\x08" << " \x08" << "%c" << "arkane" << "\x08" << "\x08 | force updated";
 
                 if (interfaces::engine->is_in_game()) {
-                    interfaces::chat_element->chatprintf("#delusional#_print_updated_hud");
+                    interfaces::chat_element->chatprintf("#arkane#_print_updated_hud");
                     features::skins::forcing_update = true;
                 }
             }

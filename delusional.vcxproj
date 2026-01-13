@@ -40,7 +40,7 @@
     <ProjectGuid>{0d587cb8-c127-4bc9-8117-72fbb62010a8}</ProjectGuid>
     <RootNamespace>Parallax</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>delusional</ProjectName>
+    <ProjectName>arkane</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -121,8 +121,8 @@
     <OutDir>.\bin</OutDir>
     <IntDir>.\intermediate</IntDir>
     <TargetName>debug</TargetName>
-    <IncludePath>C:\Users\julio\Desktop\Main\Projects\delusional-master\includes\lua\src;includes\imgui\freetype\include;includes;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\julio\Desktop\Main\Projects\delusional-master\includes\lua\lib;includes\imgui\freetype\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\julio\Desktop\Main\Projects\arkane-master\includes\lua\src;includes\imgui\freetype\include;includes;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\julio\Desktop\Main\Projects\arkane-master\includes\lua\lib;includes\imgui\freetype\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dev|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -143,8 +143,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\Justin\Desktop\Github\delusional\includes\lua\src;C:\Users\Justin\Desktop\Github\delusional\includes\imgui\freetype\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Justin\Desktop\Github\delusional\includes\imgui\freetype\lib;C:\Users\Justin\Desktop\Github\delusional\includes\lua\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Justin\Desktop\Github\arkane\includes\lua\src;C:\Users\Justin\Desktop\Github\arkane\includes\imgui\freetype\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Justin\Desktop\Github\arkane\includes\imgui\freetype\lib;C:\Users\Justin\Desktop\Github\arkane\includes\lua\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dev|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -156,8 +156,8 @@
     <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Beta|Win32'">
-    <IncludePath>C:\Users\Moi\Documents\GitHub\delusional-master\includes\lua\src;includes\imgui\freetype\include;includes;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Moi\Documents\GitHub\delusional-master\includes\lua\lib;includes\imgui\freetype\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Moi\Documents\GitHub\arkane-master\includes\lua\src;includes\imgui\freetype\include;includes;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Moi\Documents\GitHub\arkane-master\includes\lua\lib;includes\imgui\freetype\lib;$(LibraryPath)</LibraryPath>
     <OutDir>.\bin\release</OutDir>
     <IntDir>.\intermediate</IntDir>
     <TargetName>release</TargetName>

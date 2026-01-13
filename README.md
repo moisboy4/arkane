@@ -1,4 +1,4 @@
-# DELUSIONAL FIX (FIXED VERSION OF DELUSIONAL V2 LEAKED SRC)
+# ARKANE FIX (FIXED VERSION OF DELUSIONAL V2 LEAKED SRC)
 ## made by me & flowars to play inui
 
 👑 Ｄｅｌｕｓｉｏｎａｌ ｆｉｘ ｂｙ ｏｐｅｒｔｕｎｉｔｙ ａｎｄ ｆｌｏｗｅｒｓ 👑<br>
@@ -36,7 +36,7 @@
     - fixed precipitation (s/o [@flowars](https://github.com/flowars))
 + Movement
     - jb works while crouched
-    - "unlocked" nn fixed og delusional eb
+    - "unlocked" nn fixed og arkane eb
     - fixed auto-align and ps to work for all ticks servers
 + Indicators
     - fixed fading time not saving into cfg and not working properly
@@ -56,7 +56,7 @@
     - added simple smooth
 + Movement
     - added misshop for inui gaming (s/o [@flowars](https://github.com/flowars))
-    - added silent option for delusional eb
+    - added silent option for arkane eb
     - pasted and fixed eb from lobotomy
     - added auto-align from lobotomy
     - added px from lobotomy
@@ -90,8 +90,8 @@
 + Fix issues w createmove on low fps
 + Proper unload works only if cheat is injected using manual map
 + Make recorder work for all ticks
-+ Delusional edgebug chatprint using extra advanced detection s broken
-+ Delusional pixelsurf doesnt crouch some times on 128 tick
++ Arkane edgebug chatprint using extra advanced detection s broken
++ Arkane pixelsurf doesnt crouch some times on 128 tick
 + Media player some times doesnt update if the track is on repeat
 + Rare animations for knives arent working properly (knives sequences)
 + Recode scaleform
