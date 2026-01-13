@@ -14,7 +14,7 @@ static auto real2abs(const T& address) {
 inline uint8_t* find_pattern(const char* mod_name, const char* sig) {
     static int errCodeCount = 0;
     errCodeCount++;
-    const auto module_handle = GetModuleHandle(mod_name);
+    const auto module_handle = GetModuleHandleA(mod_name);
 
     if (!module_handle)
         return nullptr;
@@ -114,7 +114,7 @@ inline std::uintptr_t* find_hud_element(const char* name) {
 inline vec2_t get_mouse_position() {
     POINT mousePosition;
     GetCursorPos(&mousePosition);
-    ScreenToClient(FindWindow(0, "Counter-Strike: Global Offensive"), &mousePosition);
+    ScreenToClient(FindWindowA(0, "Counter-Strike: Global Offensive"), &mousePosition);
     return { static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y) };
 }
 

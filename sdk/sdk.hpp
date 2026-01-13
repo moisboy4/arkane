@@ -444,11 +444,8 @@ public:
 
 
 	vec3_t get_absolute_origin() {
-		__asm {
-			MOV ECX, this
-			MOV EAX, DWORD PTR DS : [ECX]
-			CALL DWORD PTR DS : [EAX + 0x28]
-		}
+		size_t index = 0x28 / sizeof(void*);
+		return call_vfunc<vec3_t>(this, index);
 	}
 
 	model_t* model() {

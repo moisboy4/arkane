@@ -38,8 +38,8 @@ bool interfaces::initialize() {
 	glow_manager = reinterpret_cast<glow_manager_t*>(*reinterpret_cast<uintptr_t*>(find_pattern("client.dll", "0F 11 05 ? ? ? ? 83 C8 01 C7 05 ? ? ? ? 00 00 00 00") + 3));
 	chat_element = *reinterpret_cast<c_hud_chat**>(reinterpret_cast<uintptr_t>(client_mode) + *reinterpret_cast<uint8_t*>(find_pattern(("client.dll"), ("E8 ? ? ? ? 8B 4F ? 85 C9 74 06 51")) + 7));
 
-	//keyvalues
-	if (const HINSTANCE handle = GetModuleHandle("vstdlib.dll"))												
+		//keyvalues
+		if (const HINSTANCE handle = GetModuleHandleA("vstdlib.dll"))                                                
 		key_values_system = reinterpret_cast<void* (__cdecl*)()>(GetProcAddress(handle, "KeyValuesSystem"))();	
 
 	key_values_engine = find_pattern("engine.dll", "85 C0 74 ? 51 6A ? 56 8B C8 E8 ? ? ? ? 8B F0");

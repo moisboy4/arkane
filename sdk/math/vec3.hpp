@@ -51,13 +51,8 @@ public:
 	}
 
 	inline float length_2d(void) const {
-		float root = 0.0f;
 		float sqst = x * x + y * y;
-		__asm {
-			sqrtss xmm0, sqst
-			movss root, xmm0
-		}
-		return root;
+		return std::sqrtf(sqst);
 	}
 
 	[[nodiscard]] float dist_to_2d(const vec3_t& vector) const

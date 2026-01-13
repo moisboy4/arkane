@@ -10,15 +10,10 @@ void draw_screen_effect(i_material* material) {
 	static auto fn = find_pattern("client.dll", "55 8B EC 83 E4 ? 83 EC ? 53 56 57 8D 44 24 ? 89 4C 24 ?");
 	int w, h;
 	interfaces::engine->get_screen_size(w, h);
-	__asm {
-		push h
-		push w
-		push 0
-		xor edx, edx
-		mov ecx, material
-		call fn
-		add esp, 12
-	}
+	using fn_t = void(__thiscall*)(i_material*, int, int, int);
+	auto fnptr = reinterpret_cast<fn_t>(fn);
+	if (fnptr)
+		fnptr(material, 0, w, h);
 }
 
 void features::visuals::motion_blur(view_setup_t* setup) {

@@ -17,17 +17,10 @@ public:
 
 	inline void sinCos(float radians, PFLOAT sine, PFLOAT cosine)
 	{
-		__asm
-		{
-			fld dword ptr[radians]
-			fsincos
-			mov edx, dword ptr[cosine]
-			mov eax, dword ptr[sine]
-			fstp dword ptr[edx]
-			fstp dword ptr[eax]
-		}
+		if (sine) *sine = std::sinf(radians);
+		if (cosine) *cosine = std::cosf(radians);
 	}
-	//Чучуть асэма не помешает Приват епта // antosha (rip)
+	//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ // antosha (rip)
 	void anglevec3_ts(vec3_t& angles, vec3_t& forward)
 	{
 		float	sp, sy, cp, cy;
